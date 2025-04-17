@@ -1,6 +1,3 @@
 -Q . Theorem_Grammar
-Tokens.v
-Grammatical.v
-Entry.v
 Example_Lexicon.v
-Test.v
+Ccg.v

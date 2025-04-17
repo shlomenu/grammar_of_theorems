@@ -6,13 +6,10 @@ Require Import Coq.Relations.Relations.
 Require Import Nat.
 Require Import Coq.Arith.PeanoNat.
 
-From Theorem_Grammar Require Import Tokens.
-From Theorem_Grammar Require Import Grammatical.
-From Theorem_Grammar Require Import Entry.
-
+From Theorem_Grammar Require Import Ccg.
 (* Nouns *)
 
-#[export]
+(* #[export]
 Polymorphic Instance one_tok : Lexicon _ _ := 
   noun_phrase "one" 1.
 
@@ -34,17 +31,17 @@ Polymorphic Instance plus_tok : Lexicon _ _ :=
 
 #[export]
 Polymorphic Instance addone_tok : Lexicon _ _ := 
-  noun_phrase "addone" (fun (n : nat) => n + 1).
+  noun_phrase "addone" (fun (n : nat) => n + 1). *)
 
 (* Common Nouns *)
 
-#[export]
+(* #[export]
 Polymorphic Instance natural_tok : Lexicon _ _ :=
-  common_noun "natural" nat. 
+  common_noun "natural" nat.  *)
   
 (* Adjectives *)
 
-#[export]
+(* #[export]
 Polymorphic Instance monotone_tok : Lexicon _ _ := 
   adjective "monotone" (
     fun (f : nat -> nat) => 
@@ -84,11 +81,11 @@ Polymorphic Instance preorder_tok (A : Type) : Lexicon _ _ :=
 
 #[export]
 Polymorphic Instance order_tok (A : Type) : Lexicon _ _ :=
-  adjective "order" (fun r => order A r).
+  adjective "order" (fun r => order A r). *)
 
 (* Quantifiers *)
 
-Notation "'Quant' A" := ((Sc // ((@Np A) \\ Sc)) // (@Cn A)) (at level 45).
+(* Notation "'Quant' A" := ((Sc // ((@Np A) \\ Sc)) // (@Cn A)) (at level 45).
 
 #[export]
 Polymorphic Instance exists_tok {A : Type} : 
@@ -100,11 +97,11 @@ Polymorphic Instance exists_tok {A : Type} :
 Polymorphic Instance forall_tok {A : Type} : 
   Lexicon "every" (Quant A) := {
     denotation := fun _ P => (forall (x : A), P x)
-  }.
+  }. *)
 
 (* Other *)
 
-#[export]
+(* #[export]
 Polymorphic Instance adds_tok : 
   Lexicon "adds" (Np \\ (Sc // Np)) := {
     denotation := fun subj dir_obj => 
@@ -191,4 +188,4 @@ Polymorphic Instance or_liftR {G G'} (nxt : Lexicon "or" (G' \\ G' // G')) :
 
 
 
-
+ *)
